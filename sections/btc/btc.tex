@@ -1,0 +1,31 @@
+\section{Annual Electricity Usage of the Bitcoin Network}\label{section:btc}
+\textbf{Disclaimer: Information regarding the electricity usage required to operate Bitcoin mining machines \textit{is} an estimate based on inherently public hashrate data, however some assumptions are made by in order to estimate the final electricity usage figures.
+  The Galaxy Digital Mining Team encourages external thoughts and contributions that result in the most accurate figures possible.
+}
+
+\subsubsection{Methodology}
+The estimated total annual electricity usage required to operate the Bitcoin network is calculated as follows:
+
+\begin{equation}\label{eqn:btc-total}
+  E_\textrm{BTC} = E_\textrm{Miners} + E_\textrm{Pools} + E_\textrm{Nodes}  
+\end{equation}
+\noindent
+Where,
+
+\begin{align*}
+&E_\textrm{BTC}     \textrm{ \ \  = Estimated total annual electricity usage of the Bitcoin network, $\xwhyr{T}$} \\
+&E_\textrm{Miners}  \textrm{      = Estimated total annual electricity usage of Bitcoin miners, $\xwhyr{T}$} \\
+&E_\textrm{Pools}   \textrm{ \ \  = Estimated total annual eletricity usage of Bitcoin pools, $\xwhyr{T}$} \\
+&E_\textrm{Nodes}   \textrm{ \    = Estimated total annual electricity usage of Bitcoin nodes, $\xwhyr{T}$}
+\end{align*}
+
+Using the results described in Sections \ref{sec:btc-miners} - \ref{sec:btc-nodes} below, Eq. \eqref{eqn:btc-total} is solved as follows:
+
+\begin{align}\label{eqn:btc-total-res}
+  E_\textrm{BTC} &= E_\textrm{Miners} + E_\textrm{Pools} + E_\textrm{Nodes} \nonumber \\
+                 &= 113.8800 \xwhyr{T} + 0.0086 \xwhyr{T} + 0.0054 \xwhyr{T} \nonumber \\
+                 &= 113.8940 \xwhyr{T} \nonumber \\
+                 &= 113.89 \xwhyr{T}
+\end{align}
+
+Therefore, the estimated total annual electricity usage required to operate the Bitcoin network is 113.89 $\xwhyr{T}$.

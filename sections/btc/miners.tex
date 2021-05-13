@@ -1,0 +1,17 @@
+\subsection{Bitcoin Miner Contribution}\label{sec:btc-miners}
+
+\subsubsection{Assumptions}
+While hashrate data is public, the Cambridge Centre for Alternative Finance has made several assumptions in estimating the annual electricity usage of the Bitcoin network.
+A complete list and explanation of all assumptions made can be found \href{https://cbeci.org/cbeci/methodology}{here} \cite{btc-cbeci-meth}.
+
+A brief overview of these assumptions are:
+\begin{enumerate}
+  \item The global average electricity price is constant over time and corresponds to 0.05 USD/kWh.
+  \item During time periods where no mining equipment is profitable, the model uses the last known profitable equipment.
+  \item All miners use an equally-weighted basket of hardware types that are profitable in electricity terms.
+  \item All mining facilities have a PUE of 1.10.
+\end{enumerate}
+
+\subsubsection{Methodology}
+The Cambridge Centre for Alternative Finance has produced a continuously updating report on the electricity usage of the mining machines required to operate the Bitcoin network \cite{btc-cbeci}.
+As of April 23, 2021, the reported annualized usage of the Bitcoin network is 113.88 $\xwhyr{T}$, which is taken to be $E_\textrm{Miners}$ in Eq. \eqref{eqn:btc-total}.

@@ -1,0 +1,42 @@
+\subsection{ATM Contribution}\label{section:banks-atm}
+The banking system does not publicly report the electricity usage data required to operate ATMs.
+Several assumptions are made in order to estimate this figure.
+
+\subsubsection{Assumptions}
+\begin{enumerate}
+  \item The operating hours of an ATM is 24 hours per day, 7 days per week, 52 weeks per year, for a total of 8,760 hours per year.
+  \item The global adult population is considered to be 16+ and taken in the year 2020, while the ATM per 100,000 adults figure is from 2019.
+  \item The global adult population is considered to be 16 year old and above, and is taken in the year 2020, while the ATMs per 100,000 adults figure is from 2019.
+  \item The demand of a single ATM is assumed to be that of a Prineta ATM, which is 145 W \cite{rating-atm}.
+\end{enumerate}
+
+\subsubsection{Methodology}
+The estimated total annual electricity usage required to power the banking system's ATMs is calculated as follows:
+
+\begin{align}\label{eqn:banks-e-atms}
+&E_\textrm{ATMs} = N_\textrm{ATMs} \times D_\textrm{ATM} \times H_\textrm{yr} \times C
+\end{align}
+
+Where,
+
+\begin{align*}
+  &E_\textrm{ATMs} \textrm{ \   = Estimated total annual electricity usage of ATMs, } \xwhyr{T} \\
+  &N_\textrm{ATMs} \textrm{     = Number of ATMs globally,  2,432,632 ATMs} \\
+  &D_\textrm{DCs} \textrm{ \ \  = Estimated demand of a single ATM, 145 W} \\
+  &C \textrm{\qquad \ \         = Conversion factor, $\convtw$}
+\end{align*}
+
+According to The World Bank, in 2019 there were 42.78 ATMs per 100,000 adults \cite{number-branches-atms}.
+In 2020, the adult population (16 years old and above) was 5,686,376,363 \cite{pop}.
+Therefore, the estimated number of ATMs is 2,432,632 globally. \\
+
+Eq. \eqref{eqn:banks-e-atms} is solved as follows:
+
+\begin{align}\label{eqn:banks-e-atm-res}
+                    E_\textrm{ATMs} &= N_\textrm{ATMs} \times D_\textrm{ATM} \times H_\textrm{yr} \times C \nonumber \\
+                    &= 2,432,632 \textrm{ ATMs} \times 145 \textrm{ W}  \times 8,760 \times \convtw \nonumber \\
+                    &= 3,089,928,922,866 \ \xwhyr{} \times \convtw \nonumber \\
+                    &= 3.09 \ \xwhyr{T} 
+\end{align}
+
+Therefore, the estimated total annual electricity usage required to operate the banking system's ATMs is 3.09 $\xwhyr{T}$.

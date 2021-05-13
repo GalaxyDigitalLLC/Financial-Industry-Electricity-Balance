@@ -1,0 +1,48 @@
+\subsection{Banking Branches Contribution}\label{section:banks-branches}
+The banking system does not publicly report the electricity usage data required to operate their physical branch locations.
+Several assumptions are made in order to estimate this figure.
+
+\subsubsection{Assumptions}
+\begin{enumerate}
+  \item The operating hours of a bank branch is 9 hours per day, 5 days per week, 50 weeks per year, for a total of 2,250 hours per year.
+  \item The global adult population is considered to be 16 year old and above, and is taken in the year 2020, while the bank branches per 100,000 adults figure is from 2019.
+  \item A bank branch is considered to be a small business.
+  \item To obtain an estimation for the electricity usage of a small business, the estimated electricity usage of a small business for four regions is averaged together. The chose regions are the United States, the United Kingdom, Mexico, and China.
+  \item Small business electricity usage data is not readily available for Mexico or China, so a ratio of the small business usage to the residential usage of the known areas (the US and UK) is used to estimate the small business usage data for the regions with unknown data.
+  \item Only bank branch offices, not all financial offices, are considered.
+  \item Only electricity usage, not gas usage, is considered.
+\end{enumerate}
+
+\subsubsection{Methodology}
+The estimated total annual electricity usage required to power the banking system's physical branches is calculated as follows:
+
+\begin{align}\label{eqn:banks-e-branches}
+  E_\textrm{Branches} = N_\textrm{Branches} \times E_\textrm{Bus} \times C
+\end{align}
+
+Where,
+
+\begin{align*}
+  &E_\textrm{Branches} \textrm{ \     = Estimated total annual electricity usage of bank branches} \\
+  &\textrm{ \qquad \qquad \quad \ globally,} \xwhyr{T} \\
+  &N_\textrm{Branches}  \textrm{ \    = Number of bank branches globally, 654,502 branches} \\
+  &E_\textrm{Bus}  \textrm{ \qquad \  = Estimated average annual electricity usage of a small}  \\
+  &\textrm{ \qquad \qquad \quad \ \ business, $30,116\kwhyr$} \\
+  &C \textrm{\qquad \quad \ \ \       = Conversion factor, $\convtk$}
+\end{align*}
+
+According to The World Bank, in 2019 there were 11.51 bank branches per 100,000 adults \cite{number-branches-atms}.
+In 2020, the adult population (16 years old and above) was 5,686,376,363 \cite{pop}.
+Therefore, the estimated number of global bank branches is 654,502. 
+In Section \ref{sec:branches-small-bus-est}, Eq. \eqref{eqn:banks-e-total-res} estimates the average annual electricity usage of a bank branch as 30,116 $\kwhyr$.
+
+Eq. \eqref{eqn:banks-e-branches} is solved as follows:
+
+\begin{align}\label{eqn:banks-e-res-branches}
+  E_\textrm{Branches} &= N_\textrm{Branches} \times E_\textrm{Bus} \times C \nonumber\\
+                      &= 654,502 \times 30,116 \ \kwhyr \nonumber \\
+                      &= 19,710,756,180 \ \kwhyr \times \convtk \nonumber \\
+                      &= 19.71 \textrm{ TWh/yr} 
+\end{align}
+
+Therefore, the total annual electricity usage of the financial system is estimated to be 19.71 $\xwhyr{T}$.

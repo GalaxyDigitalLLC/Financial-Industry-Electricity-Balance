@@ -1,0 +1,101 @@
+\subsection{Data Center Contribution}\label{section:banks-data centers}
+
+The banking system does not publicly report the electricity usage data required to operate their data center infrastructure.
+Several assumptions are made in order to estimate this figure. 
+
+\subsubsection{Assumptions}
+\begin{enumerate}
+  \item The operating hours of a banking data center is 24 hours per day, 7 days per week, 52 weeks per year, for a total of 8,760 hours per year.
+  \item Only the top 100 banks (by total deposits) were considered. Total deposit amounts for each bank are as of their latest annual report (per S\&P Capital IQ).
+  \item The only major bank with public information regarding the number of data centers in use is Bank of America.
+    For this reason, the electricity usage of all other considered banks are based on the available data from Bank of America.
+  \item A linear relationship between number of data centers and total annual deposits as reported by the latest S\&P Capital IQ is assumed.
+  \item An area of 75,000 ft\textsuperscript{2} is assumed for each data center.
+  \item A demand of 400 Watts per ft\textsuperscript{2} for a data center is assumed \cite{dc-w-per-ft2}.
+  \item Data center office space is not distinguished from server space.
+  \item Only electricity usage, not gas usage, is considered.
+\end{enumerate}
+
+\subsubsection{Methodology}
+The estimated total global annual electricity usage of the banking system's data centers is calculated as follows:
+
+\begin{align}\label{eqn:banks-e-dc}
+  E_\textrm{DCs} = D_\textrm{DCs} \times H_\textrm{yr}
+\end{align}
+
+\noindent
+Where,
+
+\begin{align*}
+  &E_\textrm{DCs} \textrm{ \      = Estimated total annual electricity usage of the top 100 world} \\
+  &\textrm{ \qquad \quad \ \ bank's data centers, } \xwhyr{T} \\
+  &D_\textrm{DCs} \textrm{ \      = Estimated demand of the top 100 world bank's data centers, 0.03 TW} \\
+  &H_\textrm{yr}  \textrm{\quad \ = Operating hours of a banking data center, 8,760 $\hyr$}
+\end{align*}
+
+
+The estimated total annual electricity usage of the top 100 banks is the product of the estimated data center demand for all considered banks and the hours of operation.
+The only bank that reports the number of data center it uses is Bank of America, which has 23 private data centers \cite{boa-dc-num}.
+Therefore, Bank of America's data centers are used as a basis to estimate the total annual electricity usage of all considered banks.
+To estimate the data center demand for the top 100 banks, a linear relationship between number of data centers and total annual deposits is assumed.
+
+The estimated demand of the considered banks is calculated as follows:
+
+\begin{equation}\label{eqn:banks-dc-demand}
+  D_\textrm{DCs} = N_\textrm{DCs} \times A_\textrm{DC} \times D_{\wA}
+\end{equation}
+
+\begin{align*}
+  &D_\textrm{DCs} \textrm{ \ = Estimated demand of the top 100 world bank's data centers, TW} \\
+  &N_\textrm{DCs}  \textrm{ \ = Estimated number of the top 100 world bank's data centers, 909.15} \\
+  &\textrm{\qquad \qquad data centers} \\
+  &A_\textrm{DC} \textrm{ \ \ = Estimated area of a bank's data center, 75,000 ft\textsuperscript{2}} \\
+  &D_{\wA} \textrm{ \ \ = Demand per area of a data center, $400 \wA$}
+\end{align*}
+
+None of the considered banks, including Bank of America, provide the data center demand or any other useful insights into their data center operations.
+The data center electricity demand is estimated by assuming a size of 75,000 ft\textsuperscript{2}, and a demand of 400 W per square foot \cite{dc-w-per-ft2}.
+
+The number of data centers for all banks considered is estimated to be the product of the total top 100 global banks annual deposits and the ratio of the number of Bank of America’s data centers to Bank of America’s total annual deposits and is calculated as follows:
+
+\begin{equation}\label{eqn:banks-num-dcs}
+  N_\textrm{DCs} = \frac{N_\textrm{DCs, BoA}} {TD_\textrm{BoA}} \times \sum \limits_{i=1} ^ {N_\textrm{Banks}} TD_i 
+\end{equation}
+
+\begin{align*}
+  &N_\textrm{DCs}  \textrm{ \ \ = Estimated number of the top 100 world bank's data centers, 909.15} \\
+  &\textrm{\qquad \qquad \ data centers} \\
+  &TD_\textrm{BoA} \textrm{ = Total annual deposits of Bank of America, \$1,795.48-b} \\
+  &i \textrm{ \qquad \ \ \ = $i^{th}$ bank of summation} \\
+  &N_\textrm{Banks} \textrm{ \ = Number of considered banks, 100 banks} \\
+  &TD_i  \textrm{ \quad \ = Total annual deposits of the $i^{th}$ bank considered, \$-b}
+\end{align*}
+
+The summation of the total deposits for the top 100 global banks is \$70,972.10 billion, and the total deposits for Bank of America is \$1,795.48 billion.
+The estimated total annual electricity usage of the banking system’s data centers is estimated to be the product of the total top 100 global banks annual deposits and the ratio of the estimated electricity demand of Bank of America’s data centers to Bank of America’s annual deposits.
+
+Eq. \eqref{eqn:banks-num-dcs} is solved as follows:
+
+\begin{align}\label{eqn:banks-num-dcs}
+  N_\textrm{DCs} &= \frac{N_\textrm{DCs, BoA}} {TD_\textrm{BoA}} \times \sum \limits_{i=1} ^ {N_\textrm{Banks}} TD_i \nonumber \\
+                 &= \frac{23} {\$1,795.48\textrm{-b}} \times \$70,972.10\textrm{-b} \nonumber \\
+                 &= 909.15 
+\end{align}
+
+Using the result in Eq. \eqref{eqn:banks-num-dcs}, Eq. \eqref{eqn:banks-dc-demand} is solved as follows:
+
+\begin{align}\label{eqn:banks-dc-demand-res}
+  D_\textrm{DCs} &= N_\textrm{DCs} \times A_\textrm{DC} \times D_{\wA} \nonumber \\
+                 &= 909.15 \times 75,000 \textrm{ ft}^2 \times 400 \ \wA \nonumber \\
+                 &= 0.03 \textrm{ TW}
+\end{align}
+
+Using the result in Eq. \eqref{eqn:banks-dc-demand}, Eq. \eqref{eqn:banks-e-dc} is solved as follows:
+
+\begin{align}\label{eqn:banks-e-dc-res}
+  E_\textrm{DCs} &= D_\textrm{DCs} \times H_\textrm{yr} \nonumber \\
+                 &= 0.03 \textrm{ TW} \times 8,760 \ \hyr \nonumber \\
+                 &= 238.92 \xwhyr{T}
+\end{align}
+
+Therefore, the estimated total annual electricity usage of the top 100 banks (by total annual deposits) data center's is 238.92 $\xwhyr{T}$.

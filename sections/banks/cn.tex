@@ -1,0 +1,51 @@
+\subsection{Card Networks Contribution}\label{section:banks-cn}
+Card networks do not publicly report the electricity usage data required to process transactions.
+Several assumptions are made in order to estimate this figure. 
+
+\subsubsection{Assumptions}
+\begin{enumerate}
+  \item The operating hours of the card networks is 24 hours per day, 7 days per week, 52 weeks per year, for a total of 8,760 hours per year.
+  \item Data center electricity usage is assumed to be the only contribution.
+  \item The office space that the card network's use is not considered.
+  \item The only card network with public information regarding the number of their data centers is VISA.
+    For this reason, the electricity usage of all other considered card networks are based on the available data from VISA.
+  \item A linear relationship between the estimated annual electricity usage of a card network's data centers and the number of transactions that each card network process is assumed.
+  \item A demand of 400 Watts per ft\textsuperscript{2} for a data center is assumed \cite{dc-w-per-ft2}.
+  \item Data center office space is not distinguished from server space.
+  \item Only electricity usage, not gas usage, is considered.
+\end{enumerate}
+
+\subsubsection{Methodology}
+The estimated total global annual electricity usage of the banking system's card networks is calculated as follows:
+
+\begin{align}\label{eqn:banks-e-cns}
+  E_\textrm{CNs} = E_\textrm{VISA} \times \frac{ N_\textrm{tx, T} }{ N_\textrm{tx, VISA} } 
+\end{align}
+
+\noindent
+Where,
+
+\begin{align*}
+  &E_\textrm{CNs} \textrm{ \quad \ \ = Estimated total annual electricity usage of global card networks, } \\
+  &E_\textrm{VISA} \textrm{\quad \ \ = Estimated annual electricity usage of the VISA network, $\xwhyr{T}$ } \\
+  &N_\textrm{tx, T} \textrm{\quad \ \ = Total number of billion transactions processed by all card networks} \\
+  &\textrm{\qquad \qquad \ \ \ \  in 2019, 441.0 billion transactions} \\
+  &N_\textrm{tx, VISA} \textrm{ = Total number of billion transactions processed by VISA in 2019, } \\
+  &\textrm{\qquad \qquad \ \ \ 185.5 billion transactions }
+\end{align*}
+
+In 2019, 441.0 billion transactions were processed by the card networks globally, 185.5 billion of which were processed by VISA \cite{cn-tx}.
+Public information on the electricity usage of the infrastructure required to power the card networks is not readily available, however, there is information available regarding the number and size of VISA's data centers (but not the data center demand).
+Therefore, VISA's data centers are used as a basis to estimate the total annual electricity usage of all card networks.
+To estimate the electricity usage of all card networks, a linear relationship between the estimated annual electricity usage of a card network's data centers and the number of transactions that each card network process is assumed.
+
+The estimated annual electricity usage of the VISA network is detailed in Section \ref{sec:visa-cn} below, where Eq. \eqref{eqn:visa-e} is solved to be 0.84 $\xwhyr{T}$.
+Using this value and the number of billions of transactions processed globally in 2019, Eq. \eqref{eqn:banks-e-cns} is solved as follows:
+
+\begin{align}\label{eqn:banks-e-cns-res}
+  E_\textrm{CNs} &= E_\textrm{VISA} \times \frac{ N_\textrm{tx, T} }{ N_\textrm{tx, VISA} } \nonumber \\
+                 &= 0.84 \xwhyr{T} \times \frac{441.0} {185.5} \nonumber \\
+                 &= 2.00 \xwhyr{T}
+\end{align}
+
+Therefore, the estimated total annual electricity usage required to operate the card networks is 2.00 $\xwhyr{T}$.

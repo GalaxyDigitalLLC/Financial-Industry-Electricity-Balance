@@ -1,0 +1,51 @@
+\subsection{Bitcoin Pool Contribution}\label{sec:btc-pools}
+\subsubsection{Assumptions}
+\begin{enumerate}
+  \item The operating hours of a Bitcoin pool is 24 hours per day, 7 days per week, 52 weeks per year, for a total of 8,760 hours per year.
+  \item Pools do not typically report data regarding their infrastructure, likely because this is not commonly requested information.
+  Upon reaching out to Slushpool, a prominent Bitcoin mining pool, they readily provided the Galaxy Digital Mining Team with information on their infrastructure requirements.
+  Slushpool's infrastructure is used to estimate their total annual electricity usage based on the demand of a typical server.
+  To estimated the total annual electricity usage of all Bitcoin mining pools, a linear relationship between a pool's server demand and the number of mined blocks in a 4 day period is assumed.
+\item The office space of the Bitcoin mining pools is not considered, but is a negligible amount as there are likely only a few offices globally.
+\item 153 blocks mined in the considered 4-day period do not come from known pools, but are instead from unknown miners.
+  In order to be conservative, these blocks are still included in this analysis because they still may be mined via a pool, not necessarily an individual miner.
+\end{enumerate}
+
+\subsubsection{Methodology}
+The estimated total annual electricity usage required to operate Bitcoin mining pools is calculated as follows:
+
+\begin{align}\label{eqn:btc-pool-e}
+  E_\textrm{Pools} = blk_\textrm{T} \times \frac{D_\textrm{SP}}{blk_\textrm{SP}} \times H_\textrm{yr} \times C
+\end{align}
+
+\noindent
+Where,
+
+\begin{align*}
+&E_\textrm{Pools} \textrm{ = Annual eletricity usage of Bitcoin pools, $\xwhyr{T}$} \\
+&blk_\textrm{T}   \textrm{ \ \ = Number of blocks mined in a 4 day period, 594 blocks \cite{mined-blocks}} \\
+&blk_\textrm{SP}  \textrm{ \ = Number of blocks mined by Slushpool in a 4 day period, 19 blocks \cite{mined-blocks}} \\
+&D_\textrm{SP}    \textrm{ \quad = Demand of Slushpool's servers, 19.5 kW} \\
+&C                \textrm{\qquad \ = Conversion factor, $\convtk$}
+\end{align*}
+
+The operating hours of a Bitcoin pool is 24 hours per day, 7 days per week, 52 weeks per year, for a total of 8,760 hours per year.
+The infrastructure requirements to operate a pool are minimal and are not typically reported by a pool, likely due to lack of public interest and because the requirements are minimal.
+However, the Galaxy Digital Mining team reached out to Slushpool who provided details of their server infrastructure requirements, which is detailed in Table \ref{table:slushpool-infra}.
+A demand for a typical 1U server of 300 W is assumed \cite{1u-power} and is used to estimate Slushpool's server demand.
+In order to estimate the total annual electricity usage of all Bitcoin mining pools, a linear relationship between a pool's server demand and the number of mined blocks in a four day period is assumed.
+The four day period is from April 19, 2021 through April 22, 2021.
+During this period, 594 blocks were mined in total, 19 of which were mined by Slushpool \cite{mined-blocks}.
+The demand of Slushpool's servers is detailed in Section \ref{sec:btc-slushpool-server} below.
+Eq. \eqref{eqn:btc-slush-e-res} in Section \ref{sec:btc-slushpool-server} below finds Slushpool's server demand to be 19.50 kW.
+
+Eq. \eqref{eqn:btc-pool-e} is solved as follows:
+
+\begin{align}\label{eqn:btc-pool-e-rew}
+  E_\textrm{Pools} &= B_\textrm{Total} \times \frac{D_\textrm{SP}}{B_\textrm{SP}} \times H_\textrm{yr} \times C \\
+                   &= 594 \textrm{ blocks}\times \frac{19.50 \textrm{ kW}}{19 \textrm{ blocks}} \times 8,760 \hyr \times \convtk \nonumber \\
+                   &= 8,609,328 \kwhyr \times \convtk \nonumber \\
+                   &= 0.0086 \xwhyr{T} 
+\end{align}
+
+Therefore, the estimated total annual electricity usage required to operate the Bitcoin mining pools is 0.0086 $\xwhyr{T}$.

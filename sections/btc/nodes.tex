@@ -1,0 +1,72 @@
+\subsection{Bitcoin Node Contribution}\label{sec:btc-nodes}
+\subsubsection{Assumptions}
+\begin{enumerate}
+  \item The operating hours of a Bitcoin node is 24 hours per day, 7 days per week, 52 weeks per year, for a total of 8,760 hours per year.
+  \item The number of nodes on the Bitcoin network vary as participants come on and off line for a variety of reasons.
+    The number of nodes used in this report is from a network snapshot taken on April 23rd, 2021.
+  \item The demand of a single node on the network is estimated to be the average of a standard laptop, a Raspberry Pi 4, and a 4-core CPU and disk space.
+    This is a conservative estimate considering a Bitcoin node may not consume all of the hardware's resources.
+\end{enumerate}
+
+\subsubsection{Methodology}
+The estimated total annual electricity usage required to operate the nodes on the Bitcoin network is calculated as follows:
+
+\begin{align}\label{eqn:btc-node-e}
+E_\textrm{Nodes} = N_\textrm{Nodes} \times D_\textrm{Node} \times H_\textrm{yr} \times C
+\end{align}
+
+\noindent
+Where,
+
+\begin{align*}
+&E_\textrm{Nodes} \textrm{            = Estimated total annual electricity usage of Bitcoin nodes, $\xwhyr{T}$} \\
+&N_\textrm{Nodes} \textrm{\           = Number of nodes on the Bitcoin network, 11,740 nodes \cite{btc-moody-dash}} \\
+&D_\textrm{Node}  \textrm{\ \         = Estimated average demand of Bitcoin node hardware, 0.52 kW} \\
+&H_\textrm{yr}    \textrm{\quad \ \   = Operating hours of a Bitcoin node, 8,760 $\hyr$} \\
+&C                \textrm{\qquad \ \  = Conversion factor, $\convtk$}
+\end{align*}
+
+The operating hours of a Bitcoin node is 24 hours per day, 7 days per week, 52 weeks per year, for a total of 8,760 hours per year.
+The number of nodes on the Bitcoin network on April 23rd, 2021 are 11,740 \cite{btc-moody-dash}.
+The system requirements to run a full node are minimal.
+Currently, most systems with around 500 GB of storage and a 4-core CPU are capable of running a node.
+Because of this, Bitcoin nodes are run on various types of hardware, including laptops, simple servers, and Raspberry Pi's.
+An average laptop consumes 60W, a Raspberry Pi 4 consumes a maximum of 15.3 W, and a typical 4-core CPU server and disk space consumes 81W \cite{laptop-demand, rpi-demand, intel-4-core, ssd-demand}.
+The demand of hardware running a Bitcoin node is estimated to be the average of these three pieces of hardware.
+This is a conservative estimate considering a Bitcoin node may not consume all of the hardware's resources.
+
+Therefore, the estimated average demand required to operate a Bitcoin node is calculated as follows:
+
+\begin{align}\label{eqn:btc-node-demand}
+  D_\textrm{Node} = \frac{D_\textrm{4-core} + D_\textrm{laptop} + D_\textrm{RPi}} {N_\textrm{HW}} \times C
+\end{align}
+
+\noindent
+Where,
+
+\begin{align*}
+&D_\textrm{Node}    \textrm{ \ \            = Estimated average demand of hardware running a Bitcoin node, kW} \\
+&D_\textrm{4-core}  \textrm{ \              = Demand of a server with a 4-core CPU and disk space, 81W \cite{intel-4-core, ssd-demand}} \\
+&D_\textrm{Laptop}  \textrm{                = Demand of a typical laptop, 60W \cite{laptop-demand}} \\
+&D_\textrm{RPi}     \textrm{ \quad \        = Demand of a Raspberry Pi 4, 15.3W \cite{rpi-demand}} \\
+&N_\textrm{HW}      \textrm{ \quad \        = Number of hardware configurations considered, 3} \\
+&C                  \textrm{\qquad \quad \  = Conversion factor, $\convkw$}
+\end{align*}
+
+Eq. \eqref{eqn:btc-node-demand} is solved as follows:
+
+\begin{align}\label{eqn:btc-node-demand-res}
+D_\textrm{Node} &= \tfrac{81 \textrm{ W} + 60 \textrm{ W} + 15.3 \textrm{ W}} { 3 }  \times \convkw \nonumber \\
+&= 0.52  \textrm{ kW}
+\end{align}
+
+Using the known number of nodes and the resulting estimated demand of a single node from Eq. \eqref{eqn:btc-node-demand-res}, Eq. \eqref{eqn:btc-node-e} is solved as follows:
+
+\begin{align}\label{eqn:btc-node-e-res}
+  E_\textrm{Nodes} &= N_\textrm{Nodes} \times D_\textrm{Node} \times H_\textrm{yr} \times C \nonumber \\
+                   &= 11,740 \times 0.52 \kwhyr \times 8,760 \hyr \times \convtk \nonumber \\
+                   &=  5,358,089.04 \kwhyr \times \convtk \nonumber \\
+                   &=  0.0054 \xwhyr{T}
+\end{align}
+
+Therefore, the estimated total annual electricity usage of all Bitcoin nodes is 0.0054 $\xwhyr{T}$.

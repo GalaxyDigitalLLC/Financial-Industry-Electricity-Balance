@@ -1,0 +1,116 @@
+\documentclass[10pt,a4paper]{article}
+
+%%%
+%%% Imports Begin
+\usepackage{url}              % Handle URLs (mainly for bib)
+\usepackage[usenames]{color}  % Font color
+\usepackage{amssymb}          % Math equations
+\usepackage{amsmath}          % Math equations
+\usepackage[utf8]{inputenc}   % Handle utf8 characters
+\usepackage{graphicx}         % Figures
+\usepackage{hyperref}         % Clickable references
+\hypersetup{
+  colorlinks,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=black
+}
+\usepackage{adjustbox, array, makecell, multirow, tabularx} % Tables
+%%% Imports End
+%%%
+
+
+%%%
+%%% Commands Begin
+% Makes multi-line subscripts in math equations
+\newcommand{\mlsub}[2]{
+  \begin{subarray}{l} \textrm{ {#1} } \\ \textrm{ {#2} } \end{subarray}
+}
+
+% Input is letter to prepend "Wh/yr" with
+% ex: \xwhyr{T} = TWh/yr
+\newcommand{\xwhyr}[1]{
+  \tfrac{ \textrm{{#1}Wh} } { \textrm{yr} }
+}
+
+% Outputs "kWhy/yr" frac
+\newcommand{\kwhyr}{
+  \tfrac{ \textrm{kWh} } { \textrm{yr} }
+}
+
+% Outputs "hr/yr" frac
+\newcommand{\hyr}{
+  \tfrac{ \textrm{hr} } { \textrm{yr} }
+}
+
+\newcommand{\convtw}{
+  \tfrac{1 \textrm{ TW} } { 10^{12} \textrm{ W}} 
+}
+
+\newcommand{\convtk}{
+  \tfrac{1 \textrm{ TW} } { 10^9 \textrm{ kW}} 
+}
+
+\newcommand{\convkw}{
+  \tfrac{1 \textrm{ kW} } { 10^3 \textrm{ W}} 
+}
+
+\newcommand{\wA}{
+  \tfrac{\textrm{W} } { \textrm{ft\textsuperscript{2}}}
+}
+
+% Tab/indent spacing
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+% Tab/indent spacing
+\newcommand\stab[1][0.5cm]{\hspace*{#1}}
+
+% Easy row wrapping in tables
+\newcommand\wraprow[2]{\multirow{#1}{*}{#2}}
+%%% Commands End
+%%%
+
+% Set equation, figure, and table numbering to match section numbering
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+\title{Financial Industry Electricity Usage Balance}
+\author{
+  Amanda Fabiano \\
+  \small{\texttt{amanda.fabiano@galaxydigital.io}}
+  \and
+  Rachel Rybarczyk \\
+\small{\texttt{rachel.rybarczyk@galaxydigital.io}}
+  \and
+  Drew Armstrong \\
+\small{\texttt{drew.armstrong@galaxydigital.io}}
+}
+\date{\today}
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+
+\input{sections/btc/btc}
+\input{sections/btc/miners}
+\input{sections/btc/pools}
+\input{sections/btc/slushpool-servers}
+\input{sections/btc/nodes}
+\input{sections/banks/banks}
+\input{sections/banks/datacenters}
+\input{sections/banks/branches}
+\input{sections/banks/small-bus-usage}
+\input{sections/banks/atm}
+\input{sections/banks/cn}
+\input{sections/banks/visa}
+\input{sections/gold}
+
+\clearpage  % Force bib to be at the very end
+\bibliographystyle{unsrt}
+\bibliography{mainbib}
+\end{document}

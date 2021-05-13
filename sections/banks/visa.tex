@@ -1,0 +1,85 @@
+\subsubsection{The VISA Network Contribution}\label{sec:visa-cn}
+The estimated total annual electricity usage of the VISA card network's data centers is calculated as follows:
+
+\begin{align}\label{eqn:visa-e}
+  E_\textrm{VISA} = \sum\limits_{i=1}^{N_\textrm{VISA, DC}}  E_{\textrm{VISA,}i}
+\end{align}
+
+\noindent
+Where,
+
+\begin{align*}
+  &E_\textrm{VISA} \textrm{ \ \ \quad = Estimated total annual electricity usage of VISA's data centers, $\xwhyr{T}$ } \\
+  &i \textrm{ \qquad \quad \quad = $i^{th}$ VISA data center} \\
+  &E_{\textrm{VISA,} i} \textrm{ \quad = Estimated total annual electricity usage of the $i^{th}$ VISA data center} \\
+  &\textrm{ \qquad \qquad \quad \ data centers, $\xwhyr{T}$} \\
+  &N_\textrm{VISA, DC} \textrm{ = Number of VISA's data centers, 5 data centers}
+\end{align*}
+
+VISA reports to have five major data centers.
+These facilities and their reported square footage is listed in Table \ref{table:visa-dc}.
+The demand for these facilities is not publicly available, therefore a demand of 400 W per square foot is assumed \cite{dc-w-per-ft2}.
+
+The estimated total annual electricity usage for each facility is calculated as follows, where $i$ refers to the specific data center in the summation:
+
+\begin{align}\label{eqn:visa-e-facility}
+  E_{\textrm{VISA,} i} = A_{\textrm{VISA,} i} \times D_{\wA} \times H_\textrm{yr} \times C
+\end{align}
+
+\noindent
+Where,
+
+\begin{align*}
+  &E_{\textrm{VISA, } i} \textrm{ \ \ = Estimated total annual electricity usage of the $i^{th}$ VISA data center} \\
+  &A_{\textrm{VISA, } i} \textrm{ \ \ = Area of the $i^{th}$ VISA data center, ft$^2$ } \\
+  &DS_\textrm{DC, ft$^2$} \textrm{ = Demand per area of a data center, 400 $\tfrac{\textrm{W}}{\textrm{ft}^2}$} \\
+  &H_\textrm{yr}  \textrm{\qquad \quad= Operating hours of a VISA data center, 8,760 $\hyr$} \\
+  &C              \textrm{\qquad \quad \ \ = Conversion factor, $\convtw$}
+\end{align*}
+
+As an example, Eq. \eqref{eqn:visa-e-facility} is solved for VISA's Operations Center East (OCE) facility as follows:
+
+\begin{align}\label{eqn:visa-e-occ}
+  E_\textrm{OCE} &= A_\textrm{OCE} \times DS_\textrm{DC, \textrm{ft}$^2$} \times H_\textrm{yr} \times \convtw \nonumber \\
+                         &= 140,000 \textrm{ ft}^2 \times 400 \tfrac{\textrm{W}}{\textrm{ft$^2$}} \times 8,760 \hyr \times \convtw \nonumber \\
+                         &= 490,560,000,000 \xwhyr{} \times \convtw \nonumber \\
+                         &= 0.49 \xwhyr{T}
+\end{align}
+
+
+\begin{table}
+  \begingroup
+  \tiny
+  \setlength{\tabcolsep}{10pt}
+  \renewcommand{\arraystretch}{1.0}
+  \resizebox{\textwidth}{!}{
+    \centering
+    \begin{tabular}[ht]{l c c}
+      \multirow{1}{*}{\textbf{Facility}}  & \multirow{1}{*}{\textbf{Data Center Area}}	  & \multirow{1}{*}{\textbf{Annual Electricity}}  \\
+                                          & \textbf{[ft\textsuperscript{2}]}  & \textbf{Consumption}                          \\
+                                          &                                   & \textbf{[TWh/yr]}                             \\
+                                          &                        						&                           					          \\
+      \hline
+                                          &                        						&                           					          \\ 
+      Operations Center East (OCE)        & 140,000                           & 0.49                                          \\
+                                          &                                   &                                               \\ 
+      Operations Center Center (OCC)      & 70,000                            & 0.25                                          \\
+                                          &                                   &                                               \\ 
+      London 1                            & 10,000                            & 0.04                                          \\
+                                          &                                   &                                               \\ 
+      London 2                            & 10,000                            & 0.04                                          \\
+                                          &                                   &                                               \\ 
+      Singapore                           & 10,000                            & 0.04                                          \\
+                                          &                         					&                           					          \\ 
+      \hline 
+                                          &                         					&                           					          \\ 
+      \textbf{Total}                      & \textbf{240,000}                  & \textbf{0.84}                                 \\
+    \end{tabular}
+  }
+  \endgroup
+  \caption{Reported VISA Data Center Facilities \cite{visa-oce-occ, visa-london-singapore} }
+  \label{table:visa-dc}
+\end{table}
+
+Using the values in Table \ref{table:visa-dc}, Eq. \eqref{eqn:visa-e} is solved and the estimated total annual electricity usage of VISA's data centers is 0.84 $\xwhyr{T}$.
+\newpage

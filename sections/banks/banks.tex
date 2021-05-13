@@ -1,0 +1,38 @@
+\section{Annual Electricity Usage of the Banking System}\label{section:banks}
+\textbf{Disclaimer: Information regarding the electricity usage required to operate the traditional banking system is very difficult to find and in most cases, completely unavailable to the public.
+Because of this, several assumptions are made in order to provide a best effort estimate.
+Electricity usage contributors not accounted for in this report, include but are not limited to, coins and paper currency, settlement layers (like the DTCC and central banks), and payment processors are not included in this analysis.
+The Galaxy Digital Mining Team encourages external thoughts and contributions that result in the most accurate figures possible.} \\
+
+\subsubsection{Methodology}
+The estimated total annual electricity usage required to power the banking system's global infrastructure is calculated as follows:
+
+\begin{equation}
+\label{eqn:banks-total}
+E_\textrm{Banks} = E_\textrm{DCs} + E_\textrm{Branches} + E_\textrm{ATMs} + E_\textrm{CNs} 
+\end{equation}
+
+Where,
+
+\begin{align*}
+  &E_\textrm{Banks} \ \textrm{ \quad    = Estimated total annual electricity usage required to operate } \\
+  &\textrm{ \qquad \qquad \quad \ the banking system, } \xwhyr{T} \\
+  &E_\textrm{DCs} \textrm{ \qquad       = Estimated total annual electricity usage of the top 100 world} \\
+  &\textrm{ \qquad  \qquad \quad \ bank's data centers, } \xwhyr{T} \\
+  &E_\textrm{Branches} \textrm{ \       = Estimated total annual electricity usage of bank branches} \\
+  &\textrm{ \qquad \qquad \quad \ globally, } \xwhyr{T} \\
+  &E_\textrm{CNs} \textrm{  \quad \quad = Estimated total annual electricity usage of global card networks, } \\
+  &\textrm{  \qquad \qquad \quad \ } \xwhyr{T} \\
+  &E_\textrm{ATMs} \textrm{\ \ \quad    = Estimated total annual electricity usage of global ATMs, } \xwhyr{T} \\
+\end{align*}
+
+
+Using the results described in Sections \ref{section:banks-cn} - \ref{section:banks-cn} below, Eq. \eqref{eqn:banks-total} is solved as follows:
+
+\begin{align}\label{eqn:banks-total-e-res}
+  E_\textrm{Banks} &= E_\textrm{DC} + E_\textrm{Branches} + E_\textrm{ATMs} + E_\textrm{CNs} \nonumber \\
+                   &= 238.92 \xwhyr{T} + 19.71 \xwhyr{T} + 3.09 \xwhyr{T} + 2.02 \xwhyr{T} \nonumber \\
+                   &= 263.72 \xwhyr{T}
+\end{align}
+
+Therefore, the estimated total annual electricity usage of the banking system's data centers is 263.72 $\xwhyr{T}$.

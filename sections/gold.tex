@@ -1,0 +1,95 @@
+\section{Annual GHG Emissions \& Electricity Usage Equivalence of the Gold Mining Industry}\label{section:gold}
+\textbf{Disclaimer: Information regarding the total annual green house gas (GHG) emissions and the electricity usage equivalence required to operate the gold mining industry is very difficult to find and in most cases, completely unavailable to the public.
+Because of this, several assumptions are made in order to provide a best effort estimate.
+The Galaxy Digital Mining Team encourages external thoughts and contributions that result in the most accurate figures possible.} \\
+
+\subsubsection{Assumptions}
+The gold industry does not publicly report the electricity usage data required to operate their infrastructure.
+Several assumptions are made in order to estimate this figure. 
+
+\begin{enumerate}
+  \item The energy usage of the gold industry is not readily available, therefore this report relies on the robustness of The World Gold Council's \textit{Gold and Climate Change: Current and Future Impacts} and assumes all energy usage from the gold industry is accounted for \cite{gold-report}.
+    This may not be a strong assumption considering The World Gold Council is comprised of large industry gold companies.
+  \item In an attempt to make the most fair comparison between the Bitcoin network and gold, only Scope 1, Scope 2, and the refining and recycling of the upstream process are accounted for.
+  \item In an attempt to make the most fair comparison between the Bitcoin network's and gold, the GHG emissions are converted from pounds of CO\textsubscript{2} per kWh using a conversion metric from the EIA of 0.92 pounds of CO\textsubscript{2}. 
+    This conversion factor is based on U.S. electricity generation data in 2019, but used to determine GHG emissions equivalent for the \textit{global} gold mining industry.
+    This implies a conservative assumption that gold mining industry is inline with the U.S. average of the carbon industry.
+  \item Another consideration with respect to the conversion factor of 0.92 pounds of CO\textsubscript{2} per kWh is that emissions from electricity generation and gold mining processes are variable. 
+    Some of the most notable variables include the type of energy sources, efficiency of power plants and gold processes, and location.
+    Therefore, the conversion factor of 0.92 pounds of CO\textsubscript{2} per kWh is a ball park estimate that is used in lieu of robust public energy usage data reporting from the gold mining industry.
+\end{enumerate}
+
+\subsubsection{Methodology}
+A report by the World Gold Council titled \textit{Gold and Climate Change: Current and Future Impacts} performed a detailed investigation on the GHG emissions various stages of the gold mining process, defined as \textit{scopes} \cite{gold-report}.
+The sources of the GHG emissions due to gold mining is broken down into two buckets: upstream and downstream.
+The upstream processes encompass three scopes as well as the refining and recycling processes. 
+These three scopes are: (1) direct GHG emissions, (2) indirect electricity emissions, and (3) other indirect emissions.
+In an effort to make the most fair comparison between the Bitcoin network and gold, this report only accounts for Scope 1, Scope 2, and the refining and recycling of the upstream process.
+The two scopes considered in this report are defined by The World Gold Council as follows:
+
+\begin{enumerate}
+  \item \textbf{Scope 1: Direct GHG Emissions} \\
+    GHG emissions occurring from sources owned or controlled by the organization, such as:
+
+    \begin{enumerate}
+      \item emissions from combustion in owned or controlled boilers, furnaces or vehicles,
+      \item emissions from chemical processes in owned or controlled equipment,
+      \item and emissions from land owned or controlled by the organization.
+    \end{enumerate}
+
+  \item \textbf{Scope 2: Indirect Electricity Emissions} \\
+    GHG emissions at power plants generating electricity  purchased by the organization.
+\end{enumerate}
+
+These scopes and the refining/recycling processes, their associated GHG emissions as reported by The World Gold Council, and the estimated electricity usage equivalences are detailed in Table \ref{table:gold-ghg-scopes} below.
+The total GHG emissions for the scopes and processes considered in this report is 100,408,504 tCO\textsubscript{2}e.
+In an attempt to make the most fair comparison between the Bitcoin network's and gold, the GHG emissions are converted from pounds of CO\textsubscript{2} per kWh using a conversion metric from the EIA of 0.92 pounds of CO\textsubscript{2}. 
+This conversion factor is based on U.S. electricity generation data in 2019, but used to determine GHG emissions equivalent for the \textit{global} gold mining industry.
+This implies a conservative assumption that gold mining industry is inline with the U.S. average of the carbon industry.
+Furthermore, it is important to note that emissions from electricity generation and gold mining processes are variable. 
+Some of the most notable variables include the type of energy sources, efficiency of power plants and gold processes, and location.
+Therefore, the conversion factor of 0.92 pounds of CO\textsubscript{2} per kWh is a ball park estimate that is used in lieu of robust public energy usage data reporting from the gold mining industry.
+
+\begin{table}[h!]
+  \begin{tabularx}{\textwidth}{ X | X | X }
+    \multirow{1}{*}{\textbf{Production}}  & \multirow{1}{*}{\textbf{Total GHG }}  & \multirow{1}{*}{\textbf{Total Equivalent}} \\
+                                          & \textbf{Emissions}                    & \textbf{Electricity Usage} \\
+                                          & \textbf{[t CO2e]}                     & \textbf{[TWh/yr]}\\
+    \hline 
+    Scope 1                               & 45,490,059                            & 109.01  \\
+    Scope 2                               & 54,914,157                            & 131.59  \\
+    Refining/Recyling Gold                & 4,228                                 & 0.01    \\
+    \hline
+    Total                                 &  100,408,504                          & 240.61  \\
+  \end{tabularx}
+  \caption{Gold Industry GHG Emissions and Electricity Usage Equivalence of the Considered Production (Upstream) Scopes and Refining/Recycling Processes \cite{gold-report}.}
+  \label{table:gold-ghg-scopes}
+\end{table}
+
+The estimated total annual electricity usage GHG emissions equivalence of the global gold mining industry is calculated as follows:
+
+\begin{equation}\label{eqn:gold-e}
+E_\textrm{Gold} = GHG_\textrm{Gold} \times C_1 \times C_2 \times C_3
+\end{equation}
+
+\noindent
+Where,
+\begin{align*}
+&E_\textrm{Gold}		\textrm{ \quad \ \ = Estimated total annual electricity usage GHG emissions equivalence} \\
+&\textrm{ \qquad \qquad \ \ \ \ of the gold mining industry, $\xwhyr{T}$ } \\
+&GHG_\textrm{Gold} \textrm{ = Annual GHG emissions of the gold industy for considered scopes} \\
+&\textrm{ \qquad \qquad \ \ \ \ and processes, 100,408,504 $\tfrac{\textrm{tonne CO\textsubscript{2}e}} {\textrm{yr}} $ } \\
+&C_1                \textrm{ \qquad \quad = Conversion factor, $0.92 \ \tfrac{\textrm{lb CO\textsubscript{2}e}}{1 \ \textrm{kWh}} $} \\
+&C_2                \textrm{ \qquad \quad = Conversion factor, $\tfrac { 2,204.62 \ \textrm{lb} }{1 \ \textrm{tonne} }$ } \\
+&C_3                \textrm{ \qquad \quad = Conversion factor, $\convtk$ } \\
+\end{align*}
+
+Eq. \eqref{eqn:gold-e} is solved as follows:
+\begin{align}\label{eqn:gold-e-res}
+  E_\textrm{Gold} &= GHG_\textrm{Gold} \times C_1 \times C_2 \times C_3 \nonumber \\
+                  &= 100,408,504 \ \tfrac{\textrm{tonne CO\textsubscript{2}e}} {\textrm{yr}} \times 0.92 \tfrac{\textrm{lb} \ \textrm{CO\textsubscript{2}e}}{1 \ \textrm{kWh}} \times \tfrac{ 2,204.62 \ \textrm{lb}}{1 \ \textrm{tonne}}  \times \convtw \nonumber \\
+                  &= 240,611,517,487 \ \kwhyr \times \convtk \nonumber \\
+                  &= 240.61 \xwhyr{T}
+\end{align}
+
+Therefore, the estimated total annual electricity usage GHG emissions equivalence of the gold mining industry for the considered scopes and refining/recycling processes is estimated to be 240.61 TWh/yr.

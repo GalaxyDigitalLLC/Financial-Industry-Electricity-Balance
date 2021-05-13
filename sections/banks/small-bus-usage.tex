@@ -1,0 +1,128 @@
+\subsubsection{Global Small Business Usage Estimate}\label{sec:branches-small-bus-est}
+The average annual electricity usage of a small business in four countries in four different regions is used to determine a global small business electricity usage estimate.
+These four countries are the US, the UK, Mexico, and China.
+
+The global estimated average annual electricity usage of a small business is calculated as follows:
+
+\begin{align}\label{eqn:banks-e-total}
+&E_\textrm{Bus} = \dfrac{ \sum \limits_{i=1} ^ {N_\textrm{Reg} } E_{\textrm{Bus,}i } }{ N_\textrm{Reg} }
+\end{align}
+
+Where,
+
+\begin{align*}
+&E_\textrm{Bus}  \textrm{ \ \   = Estimated average annual electricity usage of a small business, $\kwhyr$}  \\
+&E_{\textrm{Bus,}i} \textrm{ \  = Small business electricity usage for the $i^{th}$ region in } \\ 
+&\textrm{ \ \qquad \qquad summation, $\kwhyr$} \\ 
+&N_\textrm{Reg} \textrm{ \ \ \  = Number of considered regions, 4}
+\end{align*}
+
+Both the US and the UK have small business electricity usage data readily available, but it is difficult to locate data regarding a small business's electricity usage in many other geographical locations, including Mexico and China.
+Residential data, however, is available for all considered regions and is used in conjunction with the small business electricity usage data from the known regions in an attempt to make a fair estimate.
+
+A ratio of a small business's annual electricity usage and a residential annual electricity usage for the countries with known data (the US and UK) is calculated as follows:
+
+\begin{align}\label{eqn:banks-ratio-bus-reg}
+  R_{\mlsub{Bus,} {Reg} } = \frac{ E_{\mlsub{Bus,} {Reg} } }{ E_{\mlsub{Res,} {Reg} } }
+\end{align}
+
+Where,
+
+
+\begin{align*}
+&R_{ \mlsub{Bus,} {Reg} } \textrm{  = Regional small business to residential electricity usage ratio } \\
+&E_{\mlsub{Bus,} {Reg} } \textrm{   = Annual small business electricity usage for a specific region, $\kwhyr$} \\ 
+&E_ { \mlsub{Res,} {Reg} } \textrm{ = Annual residential electricity usage for a specific region, $\kwhyr$}
+\end{align*}
+
+In 2019, the EIA reported that the monthly average electricity usage of a small business operating in the United States is 6,066 kWh/mo, or 72,792 kWh/yr \cite{us-business}.
+Another report by the EIA last updated in 2019, reported that the annual average electricity usage of a residence in 2015 was 11,000 kWh/yr \cite{us-residential}.
+
+Eq. \eqref{eqn:banks-ratio-bus-reg} for the US is solved as follows:
+
+\begin{align}\label{eqn:banks-ratio-bus-us}
+  R_\textrm{Bus, US} &= \frac{72,792 \ \kwhyr} {11,000 \ \kwhyr} \\
+                     &= 6.62 \nonumber
+\end{align}
+
+In the UK, a small business uses 25,000 \cite{uk-business}.
+The average UK household consumes about 10 kWh/day, for a total of 3,650 kWh/yr \cite{uk-residential}.
+
+Eq. \eqref{eqn:banks-ratio-bus-reg} for the UK is solved as follows:
+
+\begin{align}\label{eqn:banks-ratio-bus-uk}
+  R_\textrm{Bus, UK} &= \frac{25,000 \ \kwhyr} {3,650 \ \kwhyr} \\
+                     &= 6.85 \nonumber
+\end{align}
+
+The final ratio used is an average of the two ratios in Eq. \eqref{eqn:banks-ratio-bus-us} and \eqref{eqn:banks-ratio-bus-uk} and is defined as follows:
+
+\begin{align}\label{eqn:banks-bus-ratio}
+  R_\textrm{Bus} = \dfrac{ \sum\limits_{i=1}^{N_{\mlsub{Known} {Reg} } } R_{\mlsub{Bus,} {Known Reg$_i$} } } { N_{\mlsub{Known} {Reg} } }
+\end{align}
+
+Where,
+
+\begin{align*}
+&R_\textrm{Bus} \textrm{ \ \ \qquad \ \ = Average ratio of the small business to residential electricity} \\
+&\textrm{\ \qquad \qquad \quad \ \ \ \ usage ratios for the known regions} \\
+&i \textrm{\ \quad \qquad \qquad = Summation start index} \\
+&N_{\mlsub{Known} {Reg} } \textrm{ \quad \ = Number of known regions} \\
+&R_{\mlsub{Bus} {Known Reg$_i$} } \textrm{\ = Ratio $i_{th}$ region with known annual small business electricity} \\
+&\textrm{\ \qquad \qquad \quad \ \ \ \ usage ratios for the known regions} \\
+\end{align*}
+
+The results of Eq. \eqref{eqn:banks-ratio-bus-us} and \eqref{eqn:banks-ratio-bus-uk} are similar in number, lending credence to the accuracy of this method.
+
+Using the results of Eq. \eqref{eqn:banks-ratio-bus-us} and \eqref{eqn:banks-ratio-bus-uk}, Eq. \eqref{eqn:banks-bus-ratio} is solved as follows:
+
+\begin{align}\label{eqn:banks-bus-ratio-res}
+  R_\textrm{Bus} &= \frac{ 6.62 + 6.85 } { 2 } \\
+                 &= 6.73 \nonumber
+\end{align}
+
+Using the resulting ratio defined in Eq.\eqref{eqn:banks-bus-ratio-res}, the annual electricity usage of a small business in regions with residential data only is defined as follows:
+
+\begin{align}\label{eqn:banks-bus-unknown-region}
+&E_{\mlsub{Bus,} {Unknown Reg} } = R_\textrm{Bus} \times E_{\mlsub{Res,} {Reg} }
+\end{align}
+
+Where,
+
+\begin{align*}
+&E_{\mlsub{Bus,} {Unknown Reg} } = \textrm{ Estimated total annual small business electricity usage for } \\
+&\textrm{\ \qquad \qquad \quad \quad \ \ \ \ region with no data, $\kwhyr$} \\
+&R_\textrm{Bus} \textrm{ \ \ \qquad \ \ = Ratio of the average small business to residential electricity usage} \\
+&\textrm{\ \qquad \qquad \quad \quad \ \ \ \ ratios for the known regions, 6.73} \\
+&E_ { \mlsub{Res,} {Reg} } \textrm{ \quad \qquad \ = Annual residential electricity usage for a specific region, $\kwhyr$}
+\end{align*}
+
+In 2018, the Department of Architecture at the Universidad de las Americas Puebla reported that the daily average electricity usage of a household in Mexico consumes 4.76 kWh/day, or 1,737 kWh/yr \cite{residential-mexico}.
+
+Eq. \eqref{eqn:banks-bus-unknown-region} for Mexico is solved as follows:
+
+\begin{align}\label{eqn:banks-bus-mexico}
+  E_{\mlsub{Bus,} {Mexico} } &= R_\textrm{Bus} \times E_{\mlsub{Res,} {Mexico} } \\
+                             &= 6.73 \times 1,737 \ \kwhyr \nonumber \\
+                             &= 11,699 \ \kwhyr \nonumber
+\end{align}
+
+In 2016, the American Council for an Energy-Efficient Economy estimates that in rural China the average residence uses 1,371 kWh/yr, and residences in more urban areas use 1,888 kWh/yr \cite{residential-china}.
+An average of these two numbers is used for the small business electricity usage of China, which is found to be 1,630 kWh/yr.
+
+Eq. \eqref{eqn:banks-bus-unknown-region} for China is solved as follows:
+
+\begin{align}\label{eqn:banks-bus-china}
+  E_{\mlsub{Bus,} {China} } &= R_\textrm{Bus} \times E_{\mlsub{Res,} {China} } \\
+                            &= 6.73 \times 1,630 \ \kwhyr \nonumber \\
+                            &= 10,972 \ \kwhyr \nonumber
+\end{align}
+
+
+Using the known annual small business electricity usage for the U.S. and the U.K., as well as the results of Eq. \eqref{eqn:banks-bus-mexico} and \eqref{eqn:banks-bus-china}, for Mexico and China, respectively, Eq. \eqref{eqn:banks-e-total} is solved as follows:
+
+\begin{align}\label{eqn:banks-e-total-res}
+  E_\textrm{Bus} &= \dfrac{ \sum \limits_{i=1} ^ {N_\textrm{Reg} } E_{\textrm{Bus,}i } }{ N_\textrm{Reg} }
+                 &= \frac{ 72,792 \ \kwhyr + 25,000 \ \kwhyr + 11,699 \ \kwhyr + 10,972 \ \kwhyr } { 4 } \\
+                 &= 30,116 \ \kwhyr \nonumber
+\end{align}

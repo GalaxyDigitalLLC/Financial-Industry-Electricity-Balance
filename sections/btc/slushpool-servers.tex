@@ -1,0 +1,45 @@
+\subsubsection{Slushpool Server Infrastructure Demand}\label{sec:btc-slushpool-server}
+
+\begin{table}
+  \begingroup
+  \tiny
+  \setlength{\tabcolsep}{10pt}
+  \renewcommand{\arraystretch}{1.0}
+  \resizebox{\textwidth}{!}{
+    \centering
+    \begin{tabular}[ht]{c c c c}
+      \multirow{1}{*}{\textbf{Number of}} & \multirow{1}{*}{\textbf{Number of}}	& \multirow{1}{*}{\textbf{Number of}}	& \multirow{1}{*}{\textbf{Number of }}  \\
+      \textbf{Mining}                     & \textbf{Proxy}           						& \textbf{Backend}                    & \textbf{Total}                        \\
+      \textbf{Servers}                    & \textbf{Servers}         						& \textbf{Servers}                    & \textbf{Servers}                      \\
+                                          &                         						&                           					&                                       \\ \hline
+                                          &                         						&                           					&                                       \\ 
+      25                                  & 25                                  & 15                                  & 65                                     \\
+    \end{tabular}
+  }
+  \endgroup
+  \caption{Slushpool Server Infrastructure as Reported by Slushpool}
+  \label{table:slushpool-infra}
+\end{table}
+
+The estimated demand required to operate Slushpool's server infrastructure is calculated as follows:
+
+\begin{align}\label{eqn:btc-slush-e}
+D_\textrm{SP} = NS_\textrm{SP} \times D_\textrm{1U} \times C
+\end{align}
+
+\noindent
+Where,
+
+\begin{align*}
+&D_\textrm{SP}    \textrm{ \quad = Demand of Slushpool's servers, kW} \\
+&NS_\textrm{SP} \textrm{ \ = Number of servers that Slushpool uses, 65 servers} \\
+&D_\textrm{1U}  \textrm{\ \quad = Demand of a common 1U server, 300 W \cite{1u-power} } \\
+&C              \textrm{\quad \quad \ = Conversion factor, $\convkw$}
+\end{align*}
+
+Eq. \eqref{eqn:btc-slush-e} is solved as follows:
+
+\begin{align}\label{eqn:btc-slush-e-res}
+D_\textrm{SP} &= 65 \times 300 \textrm{ W} \times \convkw \nonumber \\
+              &= 19.50 \textrm{ kW}
+\end{align}
